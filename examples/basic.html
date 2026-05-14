@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>RAG Widget Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Demo: Multilingual RAG Chatbot</h1>
+  <p>Click the chat icon in the bottom-right corner. Ask questions about the ingested documents in German, English, or Turkish.</p>
+
+  <p><strong>Note:</strong> Before opening this file, you must:</p>
+  <ol>
+    <li>Start the backend: <code>docker compose up -d</code></li>
+    <li>Build the widget: <code>cd widget && npm install && npm run build</code></li>
+    <li>Ingest the sample documents (see README)</li>
+  </ol>
+
+  <script
+    src="../widget/dist/chatbot.min.js"
+    data-api-url="http://localhost:8000"
+    data-theme="light"
+    data-title="Ask the docs"
+    data-language="auto"
+    data-position="bottom-right">
+  </script>
+</body>
+</html>
