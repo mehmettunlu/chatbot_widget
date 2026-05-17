@@ -32,7 +32,7 @@ export const styles = `
     --rag-muted: #9ca3af;
   }
 
-  .rag-toggle {
+  .rag-chat-btn {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -48,7 +48,7 @@ export const styles = `
     flex-shrink: 0;
   }
 
-  .rag-toggle:hover {
+  .rag-chat-btn:hover {
     background: var(--rag-primary-hover);
   }
 
@@ -66,7 +66,7 @@ export const styles = `
     overflow: hidden;
   }
 
-  .rag-panel.rag-hidden {
+  .rag-hidden {
     display: none;
   }
 
@@ -225,13 +225,13 @@ export const styles = `
       margin-bottom: 0;
     }
 
-    .rag-toggle {
+    .rag-chat-btn {
       position: fixed;
       bottom: 16px;
       right: 16px;
     }
 
-    .rag-container[data-position="bottom-left"] .rag-toggle {
+    .rag-container[data-position="bottom-left"] .rag-chat-btn {
       right: auto;
       left: 16px;
     }

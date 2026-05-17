@@ -37,7 +37,7 @@ import { styles } from './styles.js';
       this.shadowRoot.innerHTML = `
         <style>${styles}</style>
         <div class="rag-container" data-theme="${config.theme}" data-position="${config.position}">
-          <button class="rag-toggle" aria-label="Open chat">
+          <button class="rag-chat-btn" aria-label="Open chat">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
@@ -58,14 +58,15 @@ import { styles } from './styles.js';
     }
 
     attachEvents() {
-      const toggle = this.shadowRoot.querySelector('.rag-toggle');
+      const chatBtn = this.shadowRoot.querySelector('.rag-chat-btn');
       const close = this.shadowRoot.querySelector('.rag-close');
       const send = this.shadowRoot.querySelector('.rag-send');
       const input = this.shadowRoot.querySelector('.rag-input');
       const panel = this.shadowRoot.querySelector('.rag-panel');
 
-      toggle.addEventListener('click', () => {
+      chatBtn.addEventListener('click', () => {
         this.isOpen = !this.isOpen;
+        chatBtn.classList.toggle('rag-hidden', true);  // hide chatBtn
         panel.classList.toggle('rag-hidden', !this.isOpen);
         if (this.isOpen) input.focus();
       });
@@ -73,6 +74,7 @@ import { styles } from './styles.js';
       close.addEventListener('click', () => {
         this.isOpen = false;
         panel.classList.add('rag-hidden');
+        chatBtn.classList.toggle('rag-hidden', false);  // show chatBtn
       });
 
       const handleSend = () => {
